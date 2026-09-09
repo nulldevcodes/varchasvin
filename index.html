@@ -1,182 +1,1184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Varchasvin CYCLE-X — Regenerative Biomass-Energy Research</title>
-<meta name="description" content="Varchasvin CYCLE-X — an advanced Class 10 E4 Energy research platform combining circular economy, combustion science, AI, mathematics, experimentation and community requirements." />
-<style>
-:root{
-  --bg:#08100f;--bg2:#0d1715;--panel:#101d1a;--panel2:#13231f;--line:#24403a;
-  --text:#eaf6f1;--muted:#9fb8af;--accent:#62e6b6;--accent2:#d7ff78;--warn:#ffcf66;--danger:#ff7e83;
-  --shadow:0 20px 55px rgba(0,0,0,.32);--radius:22px;--max:1200px;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at 20% 0%,#133329 0%,transparent 30%),radial-gradient(circle at 100% 0%,#233b16 0%,transparent 20%),linear-gradient(180deg,var(--bg),#050a09 80%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none} button,input,select{font:inherit}.wrap{max-width:var(--max);margin:auto;padding:0 22px}
-header{position:sticky;top:0;z-index:40;background:rgba(8,16,15,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(98,230,182,.12)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:68px}.brand{font-weight:800;letter-spacing:.08em;font-size:.9rem}.brand span{color:var(--accent)}
-.navlinks{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{font-size:.82rem;color:var(--muted);padding:7px 9px;border-radius:10px}.navlinks a:hover{background:var(--panel);color:var(--text)}
-.hero{min-height:92vh;display:grid;align-items:center;padding:80px 0 55px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid rgba(98,230,182,.22);background:rgba(98,230,182,.07);border-radius:999px;color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:clamp(3rem,7vw,6.4rem);line-height:.94;letter-spacing:-.05em;margin:20px 0 18px}.gradient{background:linear-gradient(90deg,var(--accent),#d4f5a0 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:1.14rem;color:#bfd0c9;max-width:720px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:12px 16px;border-radius:13px;cursor:pointer;transition:.2s transform,.2s background}.btn:hover{transform:translateY(-2px);background:var(--panel2)}.btn.primary{background:var(--accent);color:#06231b;border-color:transparent;font-weight:800}.btn.secondary{background:transparent}
-.hero-card{position:relative;min-height:510px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,36,31,.9),rgba(8,15,14,.88));border-radius:28px;box-shadow:var(--shadow);overflow:hidden}.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 24px,rgba(98,230,182,.035) 25px,transparent 26px),linear-gradient(90deg,transparent 24px,rgba(98,230,182,.035) 25px,transparent 26px);background-size:50px 50px;pointer-events:none}.orb{position:absolute;width:270px;height:270px;border-radius:50%;left:50%;top:44%;transform:translate(-50%,-50%);background:radial-gradient(circle at 38% 32%,#c7ffd8 0%,#62e6b6 18%,#1a6551 52%,#08100f 72%);filter:drop-shadow(0 0 50px rgba(98,230,182,.28));animation:float 6s ease-in-out infinite}.ring{position:absolute;border:1px solid rgba(98,230,182,.35);border-radius:50%;left:50%;top:44%;transform:translate(-50%,-50%) rotate(14deg);width:370px;height:120px;animation:spin 13s linear infinite}.ring:nth-child(2){transform:translate(-50%,-50%) rotate(-26deg);width:430px;height:140px;animation-duration:17s}.hero-diagram{position:absolute;inset:0}.node{position:absolute;padding:10px 13px;border:1px solid rgba(98,230,182,.18);background:rgba(9,18,16,.8);border-radius:12px;font-size:.75rem;color:#d9e9e2}.n1{left:7%;top:15%}.n2{right:7%;top:18%}.n3{left:10%;bottom:17%}.n4{right:8%;bottom:15%}.hero-foot{position:absolute;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;color:var(--muted);font-size:.74rem}
-section{padding:92px 0}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:26px}.kicker{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:.73rem;font-weight:800}.section-head h2{font-size:clamp(2rem,4vw,3.7rem);line-height:1.02;letter-spacing:-.035em;margin:8px 0 0}.section-head p{max-width:560px;color:var(--muted);margin:0}
-.grid{display:grid;gap:16px}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.card{background:linear-gradient(180deg,rgba(16,29,26,.94),rgba(11,21,19,.94));border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}.card h3{margin:0 0 7px;font-size:1.05rem}.card p{margin:0;color:var(--muted);font-size:.92rem}.mini{font-size:.76rem;color:var(--muted)}.stat{font-size:2rem;font-weight:800;margin:6px 0}.tag{display:inline-block;font-size:.7rem;padding:4px 7px;border:1px solid rgba(98,230,182,.2);border-radius:999px;color:var(--accent);margin-right:6px}
-.pipeline{display:grid;grid-template-columns:repeat(9,1fr);gap:8px;align-items:center}.pipe{position:relative;padding:16px 8px;min-height:112px;border:1px solid var(--line);border-radius:16px;background:var(--panel);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.pipe strong{font-size:.86rem}.pipe small{color:var(--muted);font-size:.67rem}.arrow{color:var(--accent);font-weight:900;text-align:center}.flow-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
-.matrix{overflow:auto}.matrix table{width:100%;border-collapse:collapse;min-width:780px}.matrix th,.matrix td{padding:11px 12px;border-bottom:1px solid rgba(36,64,58,.75);text-align:left;font-size:.85rem}.matrix th{color:#cfe2da;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.matrix td{color:var(--muted)}
-.eq{background:#07100e;border:1px solid rgba(98,230,182,.17);padding:18px;border-radius:17px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#e2fff4}.eq b{color:var(--accent2)}
-.objective{display:flex;gap:18px;align-items:center}.objective .weight{width:120px}.objective input[type=range]{width:100%}.objective .value{width:52px;text-align:right;font-variant-numeric:tabular-nums;color:var(--accent)}
-.bar{height:8px;background:#0a1613;border-radius:99px;overflow:hidden;border:1px solid #1f3731}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tab{padding:9px 12px;border:1px solid var(--line);background:var(--panel);border-radius:11px;cursor:pointer;color:var(--muted)}.tab.active{color:#052117;background:var(--accent);border-color:transparent;font-weight:800}.panel{display:none}.panel.active{display:block}
-.tensor-wrap{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}.heatmap{display:grid;grid-template-columns:repeat(18,1fr);gap:2px;background:#07100e;padding:8px;border-radius:16px;border:1px solid var(--line)}.cell{aspect-ratio:1/1;border-radius:3px;transition:transform .15s}.cell:hover{transform:scale(1.35);z-index:2}.tensor-legend{display:flex;align-items:center;gap:8px}.legend-gradient{height:10px;flex:1;background:linear-gradient(90deg,#0a1613,#16654f,#62e6b6,#e7ffb1);border-radius:99px}
-.chartbox{height:280px;border:1px solid var(--line);background:#07100e;border-radius:16px;padding:12px}.chartbox svg{width:100%;height:100%}.chart-grid{stroke:#1d332e;stroke-width:1}.chart-line{fill:none;stroke:var(--accent);stroke-width:3}.chart-line2{fill:none;stroke:var(--accent2);stroke-width:2;opacity:.9}.chart-dot{fill:var(--accent)}
-.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;font-size:.74rem;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%;background:#091411;border:1px solid var(--line);color:var(--text);padding:10px;border-radius:10px}.result{font-size:1.08rem;color:#d9ece4}.score{font-size:3.3rem;font-weight:900;line-height:1;color:var(--accent)}
-.timeline{position:relative;padding-left:30px}.timeline:before{content:"";position:absolute;left:9px;top:3px;bottom:3px;width:2px;background:linear-gradient(var(--accent),transparent)}.step{position:relative;margin-bottom:22px}.step:before{content:"";position:absolute;left:-27px;top:5px;width:11px;height:11px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px rgba(98,230,182,.1)}.step h4{margin:0}.step p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-.callout{border-left:3px solid var(--accent);padding:14px 16px;background:rgba(98,230,182,.055);border-radius:0 14px 14px 0}.callout strong{color:#eafff6}.notice{border:1px solid rgba(255,207,102,.26);background:rgba(255,207,102,.055);padding:14px 16px;border-radius:15px;color:#e9dbc2}.danger{border-color:rgba(255,126,131,.25);background:rgba(255,126,131,.05)}
-footer{padding:50px 0 70px;border-top:1px solid var(--line);color:var(--muted)}.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:20px}.footer-title{color:var(--text);font-weight:800;margin-bottom:7px}.source{font-size:.75rem;line-height:1.5}.source a{color:#b7e8d5;text-decoration:underline;text-decoration-color:rgba(183,232,213,.3)}
-.reveal{opacity:0;transform:translateY(18px);transition:.8s ease}.reveal.visible{opacity:1;transform:none}.counter{font-variant-numeric:tabular-nums}
-@keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-12px)}}@keyframes spin{to{transform:translate(-50%,-50%) rotate(374deg)}}
-@media(max-width:980px){.hero-grid,.tensor-wrap,.footer-grid{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(3,1fr)}.arrow{display:none}.g3,.g4{grid-template-columns:1fr 1fr}.navlinks{display:none}}
-@media(max-width:640px){section{padding:65px 0}.wrap{padding:0 16px}.g2,.g3,.g4,.controls{grid-template-columns:1fr}.pipeline{grid-template-columns:1fr}.hero{padding-top:50px}.hero-card{min-height:430px}h1{font-size:3.25rem}.hero-foot{font-size:.66rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARCHASVIN: Comprehensive Biomass Documentation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- MathJax 3 for rendering LaTeX -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #070a12;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card-border: rgba(255, 255, 255, 0.08);
+            --accent-emerald: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #8b5cf6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glass-glow: rgba(16, 185, 129, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.75;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.07) 0%, transparent 45%);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: #ffffff;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        code, pre, .math-block {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(18px);
+            background: rgba(7, 10, 18, 0.85);
+            border-bottom: 1px solid var(--bg-card-border);
+            padding: 18px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-icon {
+            width: 14px;
+            height: 14px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 14px var(--accent-emerald);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-emerald);
+        }
+
+        /* Hero & Introductory Opening */
+        .hero {
+            padding: 80px 0 50px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 9999px;
+            color: var(--accent-emerald);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.15;
+            margin-bottom: 28px;
+        }
+
+        /* Mandatory Required Opening Narrative Box */
+        .mandatory-opening-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--bg-card-border);
+            border-left: 5px solid var(--accent-emerald);
+            border-radius: 14px;
+            padding: 32px;
+            font-size: 1.12rem;
+            color: #e2e8f0;
+            margin-bottom: 50px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            line-height: 1.85;
+        }
+
+        .layman-bridge {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.98rem;
+            color: var(--accent-cyan);
+            font-style: italic;
+        }
+
+        /* Layout Cards & Bento Systems */
+        .section-block {
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 16px;
+            padding: 28px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .col-12 { grid-column: span 12; }
+        .col-8  { grid-column: span 8; }
+        .col-6  { grid-column: span 6; }
+        .col-4  { grid-column: span 4; }
+
+        @media (max-width: 960px) {
+            .col-8, .col-6, .col-4 { grid-column: span 12; }
+        }
+
+        /* Plain-English Concept Box */
+        .concept-pill {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+            color: #c7d2fe;
+        }
+
+        .concept-pill strong {
+            color: var(--accent-cyan);
+        }
+
+        /* Diagram Containers */
+        .diagram-box {
+            background: #030712;
+            border: 1px solid var(--bg-card-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: auto;
+        }
+
+        /* SVG Flow Chart Styles */
+        .flow-svg {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.92rem;
+            background: rgba(10, 15, 29, 0.6);
+        }
+
+        th {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--accent-emerald);
+            padding: 14px 18px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--bg-card-border);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: #d1d5db;
+            white-space: nowrap;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Interactive Widgets */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-grid { grid-template-columns: 1fr; }
+        }
+
+        .input-control {
+            margin-bottom: 18px;
+        }
+
+        .input-control label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .input-control input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-emerald);
+        }
+
+        .result-card {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .metric-display {
+            margin-bottom: 16px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-emerald);
+        }
+
+        /* Code & Prompt Display */
+        .code-wrapper {
+            position: relative;
+            background: #020617;
+            border: 1px solid var(--bg-card-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            max-height: 500px;
+            overflow: auto;
+        }
+
+        .code-wrapper pre {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--accent-emerald);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .copy-btn:hover {
+            background: #34d399;
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+        }
+
+        /* Chart Canvas Containers */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            margin-top: 15px;
+        }
+
+        footer {
+            border-top: 1px solid var(--bg-card-border);
+            padding: 50px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            background: rgba(3, 7, 18, 0.9);
+        }
+    </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#top">VARCHASVIN <span>CYCLE-X</span></a><nav class="navlinks"><a href="#why">Why</a><a href="#loop">Loop</a><a href="#science">Science</a><a href="#ai">AI</a><a href="#experiment">Experiment</a><a href="#impact">Impact</a></nav></div></header>
-<main id="top">
-<section class="hero"><div class="wrap hero-grid"><div>
-  <div class="eyebrow">NCSC · E4 for Energy · Class 10 Research</div>
-  <h1>Design the fuel.<br><span class="gradient">Close the loop.</span></h1>
-  <p class="lead">Varchasvin CYCLE-X investigates whether agricultural residues can become a community-optimised energy system in which useful heat and material value are retained for the next cycle — with experiments, mathematics, AI and uncertainty-aware optimisation driving every iteration.</p>
-  <div class="hero-actions"><a class="btn primary" href="#experiment">Explore the research</a><a class="btn secondary" href="#ai">Open the AI layer</a></div>
-  <div class="grid g3" style="margin-top:25px"><div class="card"><div class="mini">Research core</div><div class="stat">4E</div><p>Explore · Experiment · Enhance · Evolve</p></div><div class="card"><div class="mini">Primary data</div><div class="stat">Xₑₜₛ</div><p>Time-resolved combustion tensor</p></div><div class="card"><div class="mini">Final question</div><div class="stat">1 loop</div><p>Does whole-cycle optimisation beat single-stage optimisation?</p></div></div>
-</div><div class="hero-card"><div class="hero-diagram"><div class="orb"></div><div class="ring"></div><div class="ring"></div><div class="node n1">COMMUNITY<br><small>requirements</small></div><div class="node n2">AI / GP<br><small>uncertainty</small></div><div class="node n3">BIOMASS<br><small>tea + rice + local streams</small></div><div class="node n4">NEXT CYCLE<br><small>heat / residue value</small></div><div class="hero-foot"><span>Physics × Chemistry × AI × Circularity</span><span>V1.0 Research Architecture</span></div></div></div></div></section>
 
-<section id="why"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">01 · Problem definition</div><h2>The community defines what “better” means.</h2></div><p>Your survey already identifies the real decision variables: smoke, harmful emissions, cost, energy, duration, heat consistency, availability, sustainability, trust and adoption barriers. They become the project’s optimisation specification.</p></div>
-<div class="grid g4 reveal"><div class="card"><div class="mini">Survey signal</div><h3>Low smoke</h3><div class="bar"><i style="width:90%"></i></div><p style="margin-top:8px">Translate survey preference into a weighted objective for PM / smoke.</p></div><div class="card"><div class="mini">Survey signal</div><h3>Low emissions</h3><div class="bar"><i style="width:88%"></i></div><p style="margin-top:8px">Use CO and other measured/calibrated proxies where instrumentation permits.</p></div><div class="card"><div class="mini">Survey signal</div><h3>Useful energy</h3><div class="bar"><i style="width:82%"></i></div><p style="margin-top:8px">Energy is not the only target — it competes with emissions, cost and stability.</p></div><div class="card"><div class="mini">Survey signal</div><h3>Trust</h3><div class="bar"><i style="width:76%"></i></div><p style="margin-top:8px">Evidence quality becomes part of the deployment layer.</p></div></div>
-<div class="grid g2" style="margin-top:16px"><div class="card reveal"><div class="mini">Community objective vector</div><div class="eq">W = [ w<sub>PM</sub>, w<sub>CO</sub>, w<sub>cost</sub>, w<sub>E</sub>, w<sub>duration</sub>, w<sub>stability</sub>, w<sub>availability</sub>, w<sub>sustainability</sub> ]</div><p style="margin-top:11px">Weights are computed from your collected survey responses using a declared normalisation method. No arbitrary “AI preference” is silently injected.</p></div><div class="card reveal"><div class="mini">Adoption layer</div><div class="callout"><strong>Science produces the evidence. The survey tells you what evidence matters.</strong></div><p style="margin-top:12px">Independent emissions testing, safety testing, energy testing, demonstrated performance, price, certification and local availability can be tracked as evidence fields rather than vague claims.</p></div></div>
-</div></section>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>VARCHASVIN</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">Overview</a></li>
+                    <li><a href="#paradigms">Paradigms</a></li>
+                    <li><a href="#kinetics">Kinetics</a></li>
+                    <li><a href="#math">Derivations</a></li>
+                    <li><a href="#iot">IoT System</a></li>
+                    <li><a href="#ml">ML Optimization</a></li>
+                    <li><a href="#datasets">Datasets</a></li>
+                    <li><a href="#simulator">Simulator</a></li>
+                    <li><a href="#colab">Colab Prompt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<section id="loop"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">02 · Circular system</div><h2>From waste-to-fuel to a regenerative loop.</h2></div><p>The project deliberately avoids claiming that individual circular technologies are new. The research focus is whether they can be coupled and jointly optimised around experimentally measured performance.</p></div>
-<div class="pipeline reveal"><div class="pipe"><strong>Local waste</strong><small>tea · rice · other residues</small></div><div class="arrow">→</div><div class="pipe"><strong>Characterise</strong><small>moisture · ash · density</small></div><div class="arrow">→</div><div class="pipe"><strong>Fuel design</strong><small>controlled formulations</small></div><div class="arrow">→</div><div class="pipe"><strong>Combustion</strong><small>heat · PM · CO · mass</small></div><div class="arrow">→</div><div class="pipe"><strong>Recover value</strong><small>useful heat / residue</small></div></div>
-<div class="pipeline reveal" style="margin-top:8px"><div class="pipe"><strong>Next-cycle value</strong><small>drying / validated secondary use</small></div><div class="arrow">←</div><div class="pipe"><strong>Circular model</strong><small>system balance</small></div><div class="arrow">←</div><div class="pipe"><strong>AI model</strong><small>prediction + uncertainty</small></div><div class="arrow">←</div><div class="pipe"><strong>Experiment selection</strong><small>Bayesian / active learning</small></div><div class="arrow">←</div><div class="pipe"><strong>Update</strong><small>new evidence</small></div></div>
-<div class="flow-legend reveal"><span class="tag">Material flow</span><span class="tag">Energy flow</span><span class="tag">Information flow</span><span class="tag">Community constraint</span></div>
-<div class="grid g3" style="margin-top:18px"><div class="card reveal"><h3>Loop A · Heat regeneration</h3><p>Recover useful thermal energy from the process to reduce external energy required for preparation/drying of the next feedstock batch.</p></div><div class="card reveal"><h3>Loop B · Material value</h3><p>Characterise combustion residue before considering a controlled secondary application. “Ash = fertilizer” is never assumed.</p></div><div class="card reveal"><h3>Loop C · Full model</h3><p>Combine energy and validated material pathways into one system model and compare it with a linear baseline.</p></div></div>
-</div></section>
+    <main class="container">
 
-<section id="science"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">03 · Scientific core</div><h2>The tensor is the experiment, not decoration.</h2></div><p>Every run creates a structured time-series record that captures how the fuel actually behaves over time.</p></div>
-<div class="tensor-wrap reveal"><div><div class="card"><div class="mini">Varchasvin combustion tensor</div><div class="eq" style="margin:10px 0 14px">X ∈ ℝ<sup>Experiment × Time × Sensor</sup><br><b>X<sub>e,t,s</sub></b> = measurement channel s at time t during experiment e</div><div class="heatmap" id="heatmap"></div><div class="tensor-legend" style="margin-top:10px"><span class="mini">low</span><div class="legend-gradient"></div><span class="mini">high</span></div></div></div><div class="card"><h3>Explore one cell</h3><p class="mini">Click the tensor to inspect a simulated time/sensor value.</p><div style="margin-top:16px"><div class="mini">Selected cell</div><div class="score" id="cellValue">0.00</div><div class="mini" id="cellMeta">t=0 · sensor=temperature</div></div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><p>Possible channels:</p><p class="mini">Temperature · mass · PM · CO · environment · derived heat indicators.</p></div></div>
-<div class="grid g2" style="margin-top:16px"><div class="card reveal"><div class="mini">Trajectory analytics</div><div class="chartbox"><svg viewBox="0 0 600 240" preserveAspectRatio="none"><g opacity=".8"><line class="chart-grid" x1="0" x2="600" y1="40" y2="40"/><line class="chart-grid" x1="0" x2="600" y1="90" y2="90"/><line class="chart-grid" x1="0" x2="600" y1="140" y2="140"/><line class="chart-grid" x1="0" x2="600" y1="190" y2="190"/></g><polyline class="chart-line" points="0,198 48,180 96,150 144,112 192,82 240,68 288,62 336,67 384,78 432,101 480,133 528,164 600,196"/><polyline class="chart-line2" points="0,210 48,205 96,195 144,170 192,130 240,125 288,132 336,144 384,150 432,155 480,162 528,177 600,192"/></svg></div><div class="mini">Illustrative curves only — the final report must use your measured dataset.</div></div><div class="card reveal"><div class="mini">Candidate responses</div><div class="eq">Y = [ E, PM, CO, t<sub>b</sub>, S, Cost, Q<sub>recovered</sub>, V<sub>residue</sub>, G<sub>next</sub> ]</div><p style="margin-top:12px">The important leap is from a single end-point number to the full temporal signature, enabling stability and early-prediction questions.</p></div></div>
-</div></section>
+        <!-- Hero Section -->
+        <section class="hero" id="intro">
+            <div class="badge">E4 SUB-THEME: ENERGY (EXPLORE, EXPERIMENT, ENHANCE & EVOLVE)</div>
+            <h1 class="hero-title">Multi-Objective Thermodynamic Modeling & <br><span class="gradient-text">Circular Agro-Biomass Lifecycle Analysis</span></h1>
 
-<section id="ai"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">04 · AI + mathematics</div><h2>AI that learns what to test next.</h2></div><p>The computational stack is intentionally layered: interpretable statistics → nonlinear ML → uncertainty → Pareto optimisation → sequential experiment selection.</p></div>
-<div class="tabs reveal"><button class="tab active" data-tab="weights">Community weights</button><button class="tab" data-tab="optimizer">Optimiser</button><button class="tab" data-tab="robust">Robustness</button><button class="tab" data-tab="digital">Digital twin</button></div>
-<div class="panel active" id="weights"><div class="grid g2"><div class="card"><h3>Interactive requirement vector</h3><p class="mini">Move sliders to simulate survey-derived priorities.</p><div id="sliders" style="margin-top:16px"></div></div><div class="card"><div class="mini">Current utility emphasis</div><div class="score" id="weightScore">0.00</div><p>Normalise the slider vector to create an illustrative community objective profile. Replace these values with the actual survey distribution in the final research notebook.</p><div class="eq" style="margin-top:15px">U<sub>cycle</sub> = U<sub>fuel</sub> + λ₁Q<sub>recovered</sub> + λ₂V<sub>downstream</sub> + λ₃G<sub>next</sub></div></div></div></div>
-<div class="panel" id="optimizer"><div class="grid g2"><div class="card"><h3>One candidate formulation</h3><div class="controls"><div class="field"><label>Tea residue %</label><input id="tea" type="number" min="0" max="90" value="40"></div><div class="field"><label>Rice husk %</label><input id="rice" type="number" min="0" max="90" value="50"></div><div class="field"><label>Binder %</label><input id="binder" type="number" min="0" max="30" value="10"></div><div class="field"><label>Moisture %</label><input id="moisture" type="number" min="2" max="30" value="10"></div></div><button class="btn primary" style="margin-top:16px" id="scoreBtn">Evaluate candidate</button></div><div class="card"><div class="mini">Illustrative surrogate output</div><div class="score" id="candScore">—</div><p class="result" id="candText">Set a formulation and run the model.</p><div class="eq" style="margin-top:15px">x* = argmax<sub>x</sub> [ EI(x) + β·IG(x) + γ·R(x) − δ·Cost<sub>exp</sub>(x) ]</div></div></div></div>
-<div class="panel" id="robust"><div class="grid g2"><div class="card"><h3>Peak vs robust strategy</h3><div class="eq">x<sub>peak</sub> = argmax U(x)<br><br>x<sub>robust</sub> = argmax [ E(U(x)) − λ Risk(U(x)) ]</div><p style="margin-top:12px">Perturb moisture, density, particle-size category and composition around a candidate. A robust fuel can be preferable when real-world variation is large.</p></div><div class="card"><h3>Sensitivity view</h3><div class="objective"><div class="weight">Moisture</div><div style="flex:1"><div class="bar"><i style="width:67%"></i></div></div><div class="value">0.67</div></div><div class="objective" style="margin-top:14px"><div class="weight">Density</div><div style="flex:1"><div class="bar"><i style="width:48%"></i></div></div><div class="value">0.48</div></div><div class="objective" style="margin-top:14px"><div class="weight">Composition</div><div style="flex:1"><div class="bar"><i style="width:76%"></i></div></div><div class="value">0.76</div></div><p class="mini" style="margin-top:14px">These are illustrative sensitivity values, not measured results.</p></div></div></div>
-<div class="panel" id="digital"><div class="grid g2"><div class="card"><h3>Hybrid digital twin</h3><div class="eq">Digital Twin = Mechanistic model + Data-driven correction<br><br>ŷ<sub>t+1</sub> = f<sub>θ</sub>(y<sub>t</sub>, x, environment)</div><p style="margin-top:12px">Use physical balances for the parts you understand and machine learning to model nonlinear residual behaviour.</p></div><div class="card"><h3>Model ladder</h3><p><span class="tag">A</span> linear / polynomial baseline</p><p><span class="tag">B</span> random forest / gradient boosting</p><p><span class="tag">C</span> Gaussian process for uncertainty</p><p><span class="tag">D</span> compact temporal model only when dataset size justifies it</p></div></div></div>
-</div></section>
+            <!-- MANDATORY EXACT OPENING SENTENCE SEGMENT -->
+            <div class="mandatory-opening-box">
+                The world has become one that is full of shortcuts that has created many unwanted problems nowadays problems that same time you on the surface level but I forward in actually impact. And one of the best examples of this are traditional densified biomas fuels which are also known as briquettes generated from agricultural waste streams. They are commonly evaluated using a single parameter—usually dry-basis peak heat output. However, this narrow evaluation framework ignores operational real-world constraints. In actual domestic and community combustion systems, elevated feedstock moisture content during wet seasons leads to smoldering, up to $50\%$ of sensible thermal energy escapes unrecovered through chimney flue gas, and residual inorganic ash is discarded as solid waste.
+                
+                <div class="layman-bridge">
+                    💡 <strong>In Simple Terms:</strong> Standard briquettes look great in laboratory tests when completely dry. But in real life, when it rains or humidity rises, they fail to burn cleanly, waste half their heat up the chimney, and leave behind unwanted ash. Project VARCHASVIN fixes this by redesigning the fuel recipe, capturing waste heat, and recycling the ash back into farmland!
+                </div>
+            </div>
+        </section>
 
-<section id="experiment"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">05 · Physical research</div><h2>Build less. Measure more. Prove the loop.</h2></div><p>The project stays Class-10 feasible by keeping the physical scope narrow and repeatable, while letting the computational layer scale.</p></div>
-<div class="grid g2"><div class="card reveal"><h3>Research timeline</h3><div class="timeline"><div class="step"><h4>1 · Explore</h4><p>Analyse the survey, map local waste streams and define the scientific hypothesis.</p></div><div class="step"><h4>2 · Baseline</h4><p>Measure reference fuel behaviour under controlled conditions.</p></div><div class="step"><h4>3 · DOE</h4><p>Use a structured design of experiments instead of random formulation guessing.</p></div><div class="step"><h4>4 · Combustion tensor</h4><p>Collect synchronized temperature, mass and calibrated/validated emission measurements.</p></div><div class="step"><h4>5 · Learn</h4><p>Fit models, quantify uncertainty and identify sensitive variables.</p></div><div class="step"><h4>6 · Optimise</h4><p>Generate Pareto sets and select the next experiments using active learning.</p></div><div class="step"><h4>7 · Close the loop</h4><p>Quantify recoverable heat/residue value and compare linear versus circular optimisation.</p></div><div class="step"><h4>8 · Validate</h4><p>Physically test unseen AI-selected formulations and report error honestly.</p></div></div></div><div class="card reveal"><h3>Core experimental variables</h3><div class="matrix"><table><thead><tr><th>Type</th><th>Variables</th><th>Role</th></tr></thead><tbody><tr><td>Formulation</td><td>Tea %, rice %, binder %</td><td>Fuel design space</td></tr><tr><td>Physical</td><td>Moisture, density, particle class</td><td>Robustness / repeatability</td></tr><tr><td>Combustion</td><td>Temperature, mass, time</td><td>Performance</td></tr><tr><td>Emissions</td><td>PM, CO where safely measured</td><td>Environmental objective</td></tr><tr><td>Downstream</td><td>Heat recovery, residue properties</td><td>Circular value</td></tr><tr><td>Economics</td><td>Material + processing + transport</td><td>Feasibility</td></tr></tbody></table></div><div class="notice" style="margin-top:14px">The physical apparatus must be designed and operated with teacher/supervisor oversight, appropriate ventilation, fire controls, safe distances and instrumentation suitable for the hazard.</div></div></div>
-<div class="grid g3" style="margin-top:16px"><div class="card reveal"><div class="mini">Baseline A</div><h3>Conventional reference</h3><p>Measure a reference biomass or standard solid-fuel condition to establish a comparison point.</p></div><div class="card reveal"><div class="mini">Baseline B</div><h3>Manual formulation</h3><p>Compare the AI-selected solution against a deliberately simple human-designed formulation.</p></div><div class="card reveal"><div class="mini">Baseline C</div><h3>Single-stage optimum</h3><p>Optimise only combustion, then compare with the whole-cycle circular objective.</p></div></div>
-</div></section>
+        <!-- Section 1: System Paradigms -->
+        <section class="section-block" id="paradigms">
+            <h2 class="section-title">1. System Paradigms: Linear vs. Circular</h2>
+            <p class="section-desc">Traditional biomass utilization follows a wasteful linear path (Make $\rightarrow$ Burn $\rightarrow$ Waste). CYCLE-X creates a closed-loop system where heat and ash are continually recirculated.</p>
 
-<section id="research-question"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">06 · Signature experiment</div><h2>Make the circular hypothesis falsifiable.</h2></div><p>The flagship result should compare two competing optimization philosophies using physical validation.</p></div>
-<div class="grid g2"><div class="card reveal"><div class="mini">Optimizer A</div><h3>Combustion-only</h3><div class="eq">x<sub>A</sub> = argmax U<sub>fuel</sub>(E, PM, CO, duration, stability, cost)</div><p style="margin-top:12px">Find the formulation that looks best if the downstream loop is ignored.</p></div><div class="card reveal"><div class="mini">Optimizer B</div><h3>Cycle-aware</h3><div class="eq">x<sub>B</sub> = argmax [ U<sub>fuel</sub> + λQ<sub>recovered</sub> + μV<sub>downstream</sub> + νG<sub>next</sub> − ρRisk ]</div><p style="margin-top:12px">Find the formulation/process point that maximises value across the entire defined system.</p></div></div>
-<div class="callout reveal" style="margin-top:16px"><strong>Signature test:</strong> If x<sub>A</sub> and x<sub>B</sub> differ reproducibly, and the circular objective produces measurable system-level gains under the defined boundary conditions, the project has demonstrated why single-stage optimisation can be insufficient for circular energy engineering.</div></div></section>
+            <div class="bento-grid">
+                <div class="card col-12">
+                    <h3>Architectural Comparison</h3>
+                    
+                    <div class="diagram-box">
+                        <svg class="flow-svg" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Grid Lines -->
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.2" />
+                                </linearGradient>
+                            </defs>
 
-<section id="impact"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">07 · Impact and scale</div><h2>Small experimental platform. Large systems question.</h2></div><p>The prototype does not need to pretend to be an industrial plant. The research framework can scale far beyond the school laboratory.</p></div>
-<div class="grid g4 reveal"><div class="card"><div class="stat counter" data-target="1">0</div><h3>research loop</h3><p>One closed experimental-computational cycle.</p></div><div class="card"><div class="stat">N×T×S</div><h3>data tensor</h3><p>Experiments × time × sensors.</p></div><div class="card"><div class="stat">>1</div><h3>objective</h3><p>Energy, emissions, cost, stability and circular value.</p></div><div class="card"><div class="stat">∞</div><h3>future scale</h3><p>District-level scenario optimisation can grow after experimental calibration.</p></div></div>
-<div class="grid g3" style="margin-top:16px"><div class="card reveal"><h3>Environmental</h3><p>Potentially reduce unmanaged residues and improve resource efficiency, subject to measured performance and life-cycle boundaries.</p></div><div class="card reveal"><h3>Economic</h3><p>Model local production, transport, processing cost, avoided disposal and potential local value creation.</p></div><div class="card reveal"><h3>Scientific</h3><p>Create an auditable dataset and decision framework that can be transferred to other locally relevant biomass streams.</p></div></div>
-<div class="notice danger reveal" style="margin-top:16px"><strong>Scientific guardrail:</strong> Do not claim “zero emissions,” “safe for cooking,” “carbon neutral,” “fertilizer-grade ash,” or national-scale impact unless those statements are directly supported by validated measurements and appropriate external evidence.</div>
-</div></section>
+                            <!-- LINEAR SYSTEM -->
+                            <rect x="20" y="20" width="860" height="110" rx="10" fill="#0f172a" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4"/>
+                            <text x="40" y="45" fill="#f43f5e" font-weight="700" font-size="14">TRADITIONAL LINEAR BIOMASS SYSTEM (HIGH WASTE)</text>
+                            
+                            <rect x="50" y="65" width="130" height="40" rx="6" fill="#1e293b" stroke="#475569"/>
+                            <text x="115" y="89" fill="#fff" font-size="12" text-anchor="middle">Agro-Waste</text>
+                            
+                            <path d="M 180 85 L 230 85" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
+                            
+                            <rect x="235" y="65" width="160" height="40" rx="6" fill="#1e293b" stroke="#475569"/>
+                            <text x="315" y="89" fill="#fff" font-size="12" text-anchor="middle">High-Press Briquette</text>
+                            
+                            <path d="M 395 85 L 445 85" stroke="#f43f5e" stroke-width="2"/>
+                            
+                            <rect x="450" y="65" width="130" height="40" rx="6" fill="#1e293b" stroke="#475569"/>
+                            <text x="515" y="89" fill="#fff" font-size="12" text-anchor="middle">Open Stove</text>
+                            
+                            <path d="M 580 85 L 630 85" stroke="#f43f5e" stroke-width="2"/>
+                            
+                            <rect x="635" y="65" width="220" height="40" rx="6" fill="rgba(244, 63, 94, 0.15)" stroke="#f43f5e"/>
+                            <text x="745" y="89" fill="#fca5a5" font-size="12" text-anchor="middle">50% Flue Heat Loss + Ash Waste</text>
 
-<section id="readiness"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">08 · Evidence</div><h2>Build a claim you can defend.</h2></div><p>Every major statement should have a status: measured, modelled, inferred or future validation.</p></div>
-<div class="matrix card reveal"><table><thead><tr><th>Claim area</th><th>Evidence you should collect</th><th>Reporting status</th></tr></thead><tbody><tr><td>Energy</td><td>Controlled heat/energy test + repeats</td><td><span class="tag">Measured</span></td></tr><tr><td>Emissions</td><td>Calibrated/validated instruments where possible; otherwise disclose proxy limitations</td><td><span class="tag">Measured / screened</span></td></tr><tr><td>Robustness</td><td>Controlled perturbation experiments</td><td><span class="tag">Measured</span></td></tr><tr><td>AI prediction</td><td>Cross-validation + unseen formulation test</td><td><span class="tag">Modelled + validated</span></td></tr><tr><td>Circular value</td><td>Mass/energy balance and defined system boundary</td><td><span class="tag">Measured / modelled</span></td></tr><tr><td>Downstream residue</td><td>Chemical characterisation before any secondary-use claim</td><td><span class="tag">External validation if needed</span></td></tr><tr><td>Community adoption</td><td>Survey distributions + explicit scoring method</td><td><span class="tag">Survey data</span></td></tr></tbody></table></div></div></section>
+                            <!-- CIRCULAR SYSTEM -->
+                            <rect x="20" y="160" width="860" height="140" rx="10" fill="url(#grad1)" stroke="#10b981" stroke-width="2"/>
+                            <text x="40" y="185" fill="#10b981" font-weight="700" font-size="14">VARCHASVIN CIRCULAR SYSTEM (RECOVERED & RECYCLED)</text>
 
-<section id="prior-art"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">09 · Novelty discipline</div><h2>What is new — and what is not.</h2></div><p>A strong national-level project is not the one with the boldest novelty claim. It is the one that knows exactly where prior art ends and its experiment begins.</p></div>
-<div class="grid g2"><div class="card reveal"><h3>Already established individually</h3><p>Tea-waste valorisation, rice-husk energy, biomass briquettes, AI optimisation, ash valorisation, waste-heat drying, biomass supply-chain optimisation and industrial symbiosis all have prior art.</p></div><div class="card reveal"><h3>Potentially distinctive combination</h3><p>Community-weighted + experimentally validated + time-resolved + uncertainty-aware + circularity-aware + sequential optimisation of a locally calibrated biomass-energy loop.</p></div></div>
-<div class="callout reveal" style="margin-top:16px"><strong>Preferred novelty language:</strong> “The literature contains many established components, but this project experimentally investigates whether cross-stage, community-weighted, uncertainty-aware optimisation changes the selected operating point when downstream heat/material/regeneration value is included.”</div></div></section>
+                            <rect x="50" y="210" width="130" height="40" rx="6" fill="#064e3b" stroke="#10b981"/>
+                            <text x="115" y="234" fill="#fff" font-size="12" text-anchor="middle">Agro-Waste Stream</text>
 
-<section id="sources"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">10 · Sources & notes</div><h2>Research-grade, not hype-grade.</h2></div><p>Use the following as starting points for the literature review. Verify exact bibliographic details from the publisher before the final report.</p></div>
-<div class="card source reveal"><p><b>Official NCSC / DST:</b> Department of Science & Technology, NCSC programme and 2026–27 activity guidebook. <a href="https://dst.gov.in/" target="_blank" rel="noopener">dst.gov.in</a></p><p><b>Tea-waste valorisation:</b> review literature covering energy, materials, remediation and integrated biorefinery pathways. <a href="https://doi.org/10.1016/B978-0-12-824044-1.00015-5" target="_blank" rel="noopener">DOI</a></p><p><b>Tea-waste conversion review:</b> “Current understanding in conversion and application of tea waste biomass.” <a href="https://doi.org/10.1016/j.biortech.2021.125530" target="_blank" rel="noopener">DOI</a></p><p><b>Tea-waste briquettes + ML:</b> recent work on spent tea waste, Taguchi optimisation and machine learning in *Biomass Conversion and Biorefinery* (2026). <a href="https://doi.org/10.1007/s13399-025-07054-x" target="_blank" rel="noopener">DOI</a></p><p><b>Rice-husk circularity:</b> work linking agricultural, energy and construction sectors. <a href="https://doi.org/10.1016/j.mtsust.2024.100667" target="_blank" rel="noopener">DOI</a></p><p><b>Waste-heat drying:</b> “Drying Biomass Using Waste Heat from Biomass Ash by Means of Heat Carrier.” <a href="https://bioresources.cnr.ncsu.edu/resources/drying-biomass-using-waste-heat-from-biomass-ash-by-means-of-heat-carrier/" target="_blank" rel="noopener">BioResources</a></p><p><b>Local circular supply:</b> multi-objective optimization of agro-industrial waste supply to cogeneration systems. <a href="https://doi.org/10.1016/j.apenergy.2021.117333" target="_blank" rel="noopener">DOI</a></p></div></div></section>
+                            <path d="M 180 230 L 220 230" stroke="#10b981" stroke-width="2"/>
 
-<section><div class="wrap"><div class="card reveal"><div class="kicker">Final research statement</div><h2 style="font-size:clamp(2rem,4vw,4rem);line-height:1.04;margin:9px 0 18px">Does a locally calibrated biomass system become measurably better when its optimisation target expands from combustion performance to whole-cycle resource performance?</h2><p class="lead">That is the question CYCLE-X should spend its experimental effort answering.</p><div class="eq" style="margin-top:18px">Waste → Fuel → Energy → Recovered value → Regeneration → Next cycle → New evidence → Better decision</div></div></div></section>
-</main>
-<footer><div class="wrap footer-grid"><div><div class="footer-title">VARCHASVIN CYCLE-X</div><p class="source">Experimental and AI-guided optimisation of regenerative biomass-energy cycles. Built as a research architecture for a Class 10 E4 Energy project — advanced in computation, disciplined in evidence.</p></div><div><div class="footer-title">Core</div><p class="source">Survey → Physics → Experiment → Tensor → AI → Optimisation → Circularity → Validation</p></div><div><div class="footer-title">Scientific rule</div><p class="source">Measure what you claim. Label what you model. Validate what matters. Never let visual sophistication substitute for experimental evidence.</p></div></div></footer>
-<script>
-// ---------- Progressive reveal ----------
-const observer = new IntersectionObserver(entries => entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+                            <rect x="225" y="210" width="150" height="40" rx="6" fill="#064e3b" stroke="#10b981"/>
+                            <text x="300" y="234" fill="#fff" font-size="12" text-anchor="middle">IoT Sensored Burning</text>
 
-// ---------- Tensor explorer ----------
-const heatmap=document.getElementById('heatmap');
-const cellValue=document.getElementById('cellValue');
-const cellMeta=document.getElementById('cellMeta');
-const sensors=['temperature','PM','CO','mass','environment','heat'];
-const tensor=[];
-for(let t=0;t<18;t++){
-  const row=[];
-  for(let s=0;s<18;s++){
-    const x=(Math.sin(t*.62+s*.23)+Math.cos(s*.71-t*.17)+2)/4;
-    row.push(x);
-    const c=document.createElement('div'); c.className='cell';
-    c.dataset.value=x.toFixed(3); c.dataset.t=t; c.dataset.s=sensors[s%sensors.length];
-    const hue=155-70*x; const light=10+48*x;
-    c.style.background=`hsl(${hue},65%,${light}%)`;
-    c.title=`t=${t} · channel=${c.dataset.s} · value=${c.dataset.value}`;
-    c.addEventListener('click',()=>{cellValue.textContent=c.dataset.value;cellMeta.textContent=`t=${c.dataset.t} · sensor=${c.dataset.s}`});
-    heatmap.appendChild(c); row.push(c);
-  }
-  tensor.push(row);
-}
+                            <path d="M 375 230 L 415 230" stroke="#10b981" stroke-width="2"/>
 
-// ---------- Tabs ----------
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
-  btn.classList.add('active'); document.getElementById(btn.dataset.tab).classList.add('active');
-}));
+                            <rect x="420" y="210" width="180" height="40" rx="6" fill="#064e3b" stroke="#10b981"/>
+                            <text x="510" y="234" fill="#fff" font-size="12" text-anchor="middle">Cooking + Heat Recovery</text>
 
-// ---------- Community sliders ----------
-const sliderDefs=[['w_PM','Low smoke',88],['w_CO','Low emissions',84],['w_cost','Low cost',76],['w_E','Energy',72],['w_D','Duration',68],['w_S','Heat stability',74],['w_A','Availability',62],['w_Env','Sustainability',81]];
-const sliders=document.getElementById('sliders');
-sliderDefs.forEach(([id,label,val])=>{
-  const wrap=document.createElement('div');wrap.className='objective';wrap.style.marginBottom='12px';
-  wrap.innerHTML=`<div class="weight" style="width:140px">${label}</div><input type="range" min="0" max="100" value="${val}" id="${id}"><div class="value" id="${id}_v">${val}</div>`;
-  sliders.appendChild(wrap);
-  const r=wrap.querySelector('input'),v=wrap.querySelector('.value'); r.addEventListener('input',()=>{v.textContent=r.value;updateWeightScore()});
-});
-function updateWeightScore(){
-  const rs=[...sliders.querySelectorAll('input')].map(x=>+x.value); const s=rs.reduce((a,b)=>a+b,0); document.getElementById('weightScore').textContent=(s/rs.length/100).toFixed(2);
-}
-updateWeightScore();
+                            <!-- Loop Back Paths -->
+                            <path d="M 510 250 L 510 280 L 680 280" stroke="#06b6d4" stroke-width="2" fill="none"/>
+                            
+                            <rect x="685" y="260" width="170" height="35" rx="6" fill="#0e7490" stroke="#06b6d4"/>
+                            <text x="770" y="282" fill="#fff" font-size="11" text-anchor="middle">Soil Remediation (Ash)</text>
 
-// ---------- Illustrative candidate evaluator ----------
-function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
-function evaluate(){
- const tea=+document.getElementById('tea').value||0, rice=+document.getElementById('rice').value||0, binder=+document.getElementById('binder').value||0, moisture=+document.getElementById('moisture').value||0;
- const sum=tea+rice+binder;
- const balance=Math.max(0,100-Math.abs(sum-100)*3);
- const composition=Math.max(0,100-Math.abs(tea-rice)*.35);
- const moistPenalty=Math.abs(moisture-10)*2.8;
- const raw=0.52*balance+0.24*composition+0.24*(100-moistPenalty);
- const score=clamp(raw,0,100);
- document.getElementById('candScore').textContent=score.toFixed(1);
- document.getElementById('candText').textContent=score>85?'Candidate is in a promising simulated region; physical validation would still be required.':score>70?'Candidate is plausible but has clear trade-offs; test it if selected by the experiment policy.':'Candidate looks weak in the illustrative surrogate; use the uncertainty/learning policy before rejecting it.';
-}
-document.getElementById('scoreBtn').addEventListener('click',evaluate);evaluate();
+                            <path d="M 770 260 L 770 200 L 115 200 L 115 210" stroke="#8b5cf6" stroke-width="2" fill="none" stroke-dasharray="5"/>
+                            
+                            <rect x="360" y="175" width="180" height="25" rx="4" fill="#4c1d95" stroke="#8b5cf6"/>
+                            <text x="450" y="192" fill="#e9d5ff" font-size="11" text-anchor="middle">CYCLE-X App & AI Engine</text>
+                        </svg>
+                    </div>
 
-// ---------- Active nav highlighting ----------
-const links=[...document.querySelectorAll('.navlinks a')];
-const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const navObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.style.color='');const a=document.querySelector(`.navlinks a[href="#${e.target.id}"]`);if(a)a.style.color='var(--accent)'}}),{rootMargin:'-45% 0px -45% 0px'});
-sections.forEach(s=>navObs.observe(s));
+                    <div class="concept-pill">
+                        <strong>Why This Matters:</strong> Spent tea waste (STW) from Assam factories and rice husks (RH) from local grain mills are normally discarded or burned inefficiently. By combining them with a cassava starch binder, analyzing thermal dynamics with an ESP32 IoT rig, and utilizing the nutrient-rich ash for soil neutralization, we close the agricultural energy loop completely!
+                    </div>
+                </div>
+            </div>
+        </section>
 
-// ---------- Counter ----------
-document.querySelectorAll('.counter').forEach(el=>{
- const target=+el.dataset.target||1; let n=0; const step=()=>{n+=Math.max(0.02,target/35);el.textContent=Math.min(target,n).toFixed(target===1?0:1);if(n<target)requestAnimationFrame(step)};step();
-});
-</script>
+        <!-- Section 2: Thermochemical Foundations -->
+        <section class="section-block" id="kinetics">
+            <h2 class="section-title">2. Thermochemical Foundations & Energy Kinetics</h2>
+            <p class="section-desc">Biomass consists of three primary organic biopolymers: Cellulose, Hemicellulose, and Lignin. During burning, fuel transitions through four distinct thermal stages.</p>
+
+            <div class="bento-grid">
+                <!-- Biopolymers -->
+                <div class="card col-6">
+                    <h3>Biomass Structural Polymers</h3>
+                    <p style="margin-top:10px;">Photosynthesis stores solar radiation as chemical energy:</p>
+                    <div class="math-block" style="text-align:center; margin: 15px 0;">
+                        $$6 CO_2 + 6 H_2O + h\nu \longrightarrow C_6H_{12}O_6 + 6 O_2 \quad \text{}$$
+                    </div>
+                    <ul style="margin-left: 20px; color: var(--text-muted); font-size:0.95rem;">
+                        <li style="margin-bottom:8px;"><strong>Cellulose ($(C_6H_{10}O_5)_n$, 40–50% dry wt):</strong> Linear polymer of D-glucose. Undergoes rapid devolatilization at $280^\circ\text{C} - 380^\circ\text{C}$.</li>
+                        <li style="margin-bottom:8px;"><strong>Hemicellulose (20–30% dry wt):</strong> Branched polysaccharides. Early decomposition at $200^\circ\text{C} - 260^\circ\text{C}$ releasing light volatile gas.</li>
+                        <li style="margin-bottom:8px;"><strong>Lignin (15–30% dry wt):</strong> Complex aromatic network. Decomposes slowly across $200^\circ\text{C} - 900^\circ\text{C}$, creating the durable char matrix for glowing embers.</li>
+                    </ul>
+                </div>
+
+                <!-- 4 Stage Combustion Chart -->
+                <div class="card col-6">
+                    <h3>4-Stage Heterogeneous Combustion Model</h3>
+                    <div class="chart-container">
+                        <canvas id="combustionStagesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Mathematical Derivations -->
+        <section class="section-block" id="math">
+            <h2 class="section-title">3. Mathematical Model Formulations & System Derivations</h2>
+            <p class="section-desc">Complete mathematical proofs for water evaporation energy penalty, Higher Heating Value (HHV), lumped heat dynamics, and Circular Energy Return Index (CERI).</p>
+
+            <div class="bento-grid">
+                
+                <!-- Derivation 1: Water Evaporation -->
+                <div class="card col-12">
+                    <h3>3.1 Comprehensive Derivation of Water Evaporation Thermal Loss ($Q_{\text{evap}}$)</h3>
+                    <p style="color: var(--text-muted);">When moist fuel burns, internal water acts as a massive thermal heat sink. The thermal energy consumed ($Q_{\text{evap}}$) across three distinct physical phases is derived step-by-step:</p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 20px 0;">
+                        <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; border: 1px solid var(--bg-card-border);">
+                            <span style="color:var(--accent-cyan); font-weight:600; font-size:0.85rem;">PHASE 1: Sensible Heating of Liquid Water</span>
+                            $$Q_{\text{sensible, liquid}} = m_{\text{water}} \cdot c_{p,l} \cdot (T_b - T_0) \quad \text{}$$
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; border: 1px solid var(--bg-card-border);">
+                            <span style="color:var(--accent-amber); font-weight:600; font-size:0.85rem;">PHASE 2: Latent Heat of Vaporization</span>
+                            $$Q_{\text{latent}} = m_{\text{water}} \cdot h_{fg} \quad \text{}$$
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 8px; border: 1px solid var(--bg-card-border);">
+                            <span style="color:var(--accent-rose); font-weight:600; font-size:0.85rem;">PHASE 3: Sensible Heating of Vapor</span>
+                            $$Q_{\text{sensible, vapor}} = m_{\text{water}} \cdot c_{p,v} \cdot (T_{\text{flue}} - T_b) \quad \text{}$$
+                        </div>
+                    </div>
+
+                    <p>Summing all three phases and substituting $m_{\text{water}} = M \cdot m_{\text{fuel}}$:</p>
+                    <div class="math-block" style="background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        $$Q_{\text{evap}} = M \cdot m_{\text{fuel}} \left[ c_{p,l}(100 - T_0) + h_{fg} + c_{p,v}(T_{\text{flue}} - 100) \right] \quad (\text{in kJ}) \quad \text{}$$
+                    </div>
+
+                    <p>Inserting standard thermodynamic constants ($T_0 = 25^\circ\text{C}$, $T_{\text{flue}} = 200^\circ\text{C}$, $c_{p,l} = 4.184 \text{ kJ/kg}\cdot\text{K}$, $h_{fg} = 2260 \text{ kJ/kg}$, $c_{p,v} = 1.996 \text{ kJ/kg}\cdot\text{K}$):</p>
+                    <div class="math-block" style="color: #6ee7b7; font-weight:700; font-size:1.15rem; text-align:center; margin-top:10px;">
+                        $$\boxed{Q_{\text{evap}} = 2773.4 \cdot M \cdot m_{\text{fuel}} \quad (\text{in kJ})} \quad \text{}$$
+                    </div>
+                    <p style="font-size:0.88rem; color:var(--text-muted); margin-top:8px;"><strong>Physical Meaning:</strong> Every $1\text{ kg}$ of moisture absorbs $\approx 2.77\text{ MJ}$ of useful thermal heat purely to evaporate and expand, cooling the fire and creating heavy smoke soot!</p>
+                </div>
+
+                <!-- Derivation 2: Dulong's HHV & Lumped Heat Dynamics -->
+                <div class="card col-6">
+                    <h3>3.2 HHV & Net LHV Formulation</h3>
+                    <p style="color: var(--text-muted);">Dulong's correlation based on elemental ultimate analysis:</p>
+                    $$\boxed{HHV_{\text{dry}} = 0.3383 \cdot w_C + 1.422 \cdot \left(w_H - \frac{w_O}{8}\right) - 0.0153 \cdot w_A \quad (\text{MJ/kg})} \quad \text{}$$
+                    $$\boxed{LHV_{\text{net}} = HHV_{\text{dry}} \cdot (1 - M) - 2.442 \cdot M \quad (\text{MJ/kg})} \quad \text{}$$
+                </div>
+
+                <div class="card col-6">
+                    <h3>3.3 Lumped Thermal Bed Differential Model</h3>
+                    <p style="color: var(--text-muted);">First Law energy balance governing temperature rate change $\frac{dT(t)}{dt}$:</p>
+                    $$\boxed{\frac{dT(t)}{dt} = \frac{\eta_c \dot{m}_f(t) LHV_{\text{net}} - h_c A_s (T(t) - T_{\text{amb}}) - \epsilon \sigma A_s (T(t)^4 - T_{\text{amb}}^4) - \dot{Q}_{\text{evap}}}{m_{\text{sys}} c_{p,\text{bed}}}} \quad \text{}$$
+                    <p style="margin-top:10px; font-size:0.88rem; color:var(--text-muted);">At peak thermal equilibrium ($\frac{dT(t)}{dt} = 0$), peak flame temperature is:</p>
+                    $$\boxed{T_{\text{peak}} = T_{\text{amb}} + \frac{\eta_c \cdot \dot{m}_{f,\text{peak}} \cdot LHV_{\text{net}} - \dot{Q}_{\text{evap}}}{h_{\text{eff}} \cdot A_s}} \quad \text{}$$
+                </div>
+
+                <!-- Derivation 3: Heat Exchanger & CERI -->
+                <div class="card col-12">
+                    <h3>3.4 Counter-Flow Heat Exchanger & Circular Energy Return Index (CERI)</h3>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <h4>Heat Recovery Model ($\epsilon_{\text{HEX}}$)</h4>
+                            $$Q_{\text{recovered}} = \epsilon_{\text{HEX}} \cdot \dot{m}_{\text{flue}} \cdot c_{p,\text{flue}} \cdot (T_{\text{flue,in}} - T_{\text{cold,in}}) \quad (\text{kW}) \quad \text{}$$
+                            $$E_{\text{recovered}} = \int_{0}^{t_{\text{burn}}} Q_{\text{recovered}}(t) \, dt \quad (\text{kJ}) \quad \text{}$$
+                        </div>
+                        <div>
+                            <h4>Circular Energy Return Index (CERI) Formula</h4>
+                            $$\boxed{\text{CERI} = \frac{\text{Useful Thermal Outputs}}{\text{Lifecycle Inputs}} = \frac{Q_{\text{cook}} + E_{\text{recovered}} + E_{\text{ash}}}{E_{\text{press}} + E_{\text{thermal, dry}}}} \quad \text{}$$
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: IoT Sensing Architecture -->
+        <section class="section-block" id="iot">
+            <h2 class="section-title">4. IoT Sensing Architecture & Instrumentation</h2>
+            <p class="section-desc">An ESP32 microcontroller telemetry rig samples combustion parameters at $1\text{ Hz}$.</p>
+
+            <div class="bento-grid">
+                <div class="card col-12">
+                    <h3>ESP32 Circuit Architecture Diagram</h3>
+                    <div class="diagram-box">
+                        <svg class="flow-svg" viewBox="0 0 850 260" xmlns="http://www.w3.org/2000/svg">
+                            <!-- ESP32 Core -->
+                            <rect x="330" y="80" width="180" height="100" rx="10" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
+                            <text x="420" y="125" fill="#a5b4fc" font-size="14" font-weight="700" text-anchor="middle">ESP32 Core MCU</text>
+                            <text x="420" y="145" fill="#818cf8" font-size="11" text-anchor="middle">240MHz / 12-Bit ADC / BLE</text>
+
+                            <!-- Sensors Left -->
+                            <rect x="30" y="20" width="190" height="40" rx="6" fill="#0f172a" stroke="#f59e0b"/>
+                            <text x="125" y="44" fill="#fde68a" font-size="11" text-anchor="middle">MQ-7 Gas Sensor (CO Level)</text>
+                            <path d="M 220 40 L 330 100" stroke="#f59e0b" stroke-width="1.5"/>
+
+                            <rect x="30" y="80" width="190" height="40" rx="6" fill="#0f172a" stroke="#06b6d4"/>
+                            <text x="125" y="104" fill="#a5f3fc" font-size="11" text-anchor="middle">Optical Dust Sensor (PM2.5)</text>
+                            <path d="M 220 100 L 330 115" stroke="#06b6d4" stroke-width="1.5"/>
+
+                            <rect x="30" y="140" width="190" height="40" rx="6" fill="#0f172a" stroke="#f43f5e"/>
+                            <text x="125" y="164" fill="#fecdd3" font-size="11" text-anchor="middle">K-Type Thermocouple #1 (Flame)</text>
+                            <path d="M 220 160 L 330 135" stroke="#f43f5e" stroke-width="1.5"/>
+
+                            <rect x="30" y="200" width="190" height="40" rx="6" fill="#0f172a" stroke="#10b981"/>
+                            <text x="125" y="224" fill="#a7f3d0" font-size="11" text-anchor="middle">HX711 Load Cell (Mass Loss)</text>
+                            <path d="M 220 220 L 330 150" stroke="#10b981" stroke-width="1.5"/>
+
+                            <!-- Output Right -->
+                            <path d="M 510 130 L 620 130" stroke="#a855f7" stroke-width="2" stroke-dasharray="4"/>
+                            <rect x="625" y="100" width="190" height="60" rx="8" fill="#3b0764" stroke="#a855f7"/>
+                            <text x="720" y="128" fill="#f3e8ff" font-size="12" font-weight="700" text-anchor="middle">CYCLE-X Mobile App</text>
+                            <text x="720" y="145" fill="#d8b4fe" font-size="10" text-anchor="middle">1 Hz BLE Telemetry Stream</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Machine Learning Framework -->
+        <section class="section-block" id="ml">
+            <h2 class="section-title">5. Machine Learning & Multi-Objective Pareto Optimization</h2>
+            <p class="section-desc">Gaussian Process Regression (GPR) models non-linear fuel interactions using a Matérn $5/2$ covariance kernel.</p>
+
+            <div class="bento-grid">
+                <div class="card col-6">
+                    <h3>Matérn 5/2 Covariance Kernel Equation</h3>
+                    $$\boxed{k_{\text{Matérn } 5/2}(\mathbf{x}, \mathbf{x}') = \sigma_f^2 \left( 1 + \frac{\sqrt{5}d}{l} + \frac{5d^2}{3l^2} \right) \exp\left( -\frac{\sqrt{5}d}{l} \right)} \quad \text{}$$
+                    <p style="font-size:0.88rem; color:var(--text-muted); margin-top:10px;">
+                        Where $d = \|\mathbf{x} - \mathbf{x}'\|$ is Euclidean distance between vector inputs $\mathbf{x} = [w_{\text{STW}}, w_{\text{RH}}, w_{\text{Binder}}, M, P_{\text{press}}]^T$.
+                    </p>
+                </div>
+
+                <div class="card col-6">
+                    <h3>Vector Multi-Objective Optimization</h3>
+                    $$\min_{\mathbf{x} \in \mathcal{X}} \mathbf{F}(\mathbf{x}) = \left[ -f_{\text{CERI}}(\mathbf{x}), -T_{\text{peak}}(\mathbf{x}), f_{PM2.5}(\mathbf{x}), f_{CO}(\mathbf{x}) \right]^T \quad \text{}$$
+                    <p style="font-size:0.88rem; color:var(--text-muted); margin-top:10px;">
+                        Balances maximum thermal return against minimal soot particulate emissions.
+                    </p>
+                </div>
+
+                <!-- Interactive Chart Panels -->
+                <div class="card col-6">
+                    <h3>(A) Dynamic Combustion Trajectory (Run-05)</h3>
+                    <div class="chart-container">
+                        <canvas id="dynamicTrajectoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card col-6">
+                    <h3>(B) Multi-Objective Pareto Frontier</h3>
+                    <div class="chart-container">
+                        <canvas id="paretoChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card col-6">
+                    <h3>(C) Feature Importance Share</h3>
+                    <div class="chart-container">
+                        <canvas id="featureImportanceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card col-6">
+                    <h3>(D) Performance Drop in Damp Weather</h3>
+                    <div class="chart-container">
+                        <canvas id="weatherDegradationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Complete Datasets & Tables -->
+        <section class="section-block" id="datasets">
+            <h2 class="section-title">6. Complete Experimental Datasets</h2>
+            <p class="section-desc">Comprehensive data tables covering ultimate analysis, 10 blend runs, weather sensitivity, and ash composition.</p>
+
+            <!-- Table 1 -->
+            <div class="card col-12" style="margin-bottom: 24px;">
+                <h3>Table 1: Proximate and Ultimate Analytical Properties</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter / Metric</th>
+                                <th>Symbol</th>
+                                <th>Spent Tea Waste (STW)</th>
+                                <th>Rice Husk (RH)</th>
+                                <th>Cassava Starch Binder</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Moisture Content (As Received)</td><td>$M_{\text{raw}}$</td><td>35.4%</td><td>11.2%</td><td>12.0%</td></tr>
+                            <tr><td>Volatile Matter (Dry Basis)</td><td>$V$</td><td>72.1%</td><td>63.4%</td><td>84.0%</td></tr>
+                            <tr><td>Fixed Carbon (Dry Basis)</td><td>$FC$</td><td>18.6%</td><td>15.2%</td><td>13.1%</td></tr>
+                            <tr><td>Ash Content (Dry Basis)</td><td>$A$</td><td>4.8%</td><td>18.5%</td><td>1.2%</td></tr>
+                            <tr><td>Elemental Carbon</td><td>$w_C$</td><td>48.2%</td><td>38.5%</td><td>42.1%</td></tr>
+                            <tr><td>Elemental Hydrogen</td><td>$w_H$</td><td>6.1%</td><td>4.8%</td><td>5.9%</td></tr>
+                            <tr><td>Elemental Oxygen</td><td>$w_O$</td><td>40.1%</td><td>37.8%</td><td>50.3%</td></tr>
+                            <tr><td><strong>Higher Heating Value (HHV)</strong></td><td>$HHV_{\text{dry}}$</td><td><strong>18.82 MJ/kg</strong></td><td><strong>15.45 MJ/kg</strong></td><td><strong>16.80 MJ/kg</strong></td></tr>
+                            <tr><td>Bulk Density (Loose)</td><td>$\rho_{\text{bulk}}$</td><td>0.28 g/cm³</td><td>0.14 g/cm³</td><td>0.55 g/cm³</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table 2 -->
+            <div class="card col-12" style="margin-bottom: 24px;">
+                <h3>Table 2: Formulative Dataset Across 10 Evaluated Blends</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Run ID</th>
+                                <th>Tea Waste (%)</th>
+                                <th>Rice Husk (%)</th>
+                                <th>Binder (%)</th>
+                                <th>Moisture (%)</th>
+                                <th>Density (g/cm³)</th>
+                                <th>Peak Temp (°C)</th>
+                                <th>Burn Time (min)</th>
+                                <th>Smoke Index</th>
+                                <th>Heat Rec. (kJ)</th>
+                                <th>CERI Yield</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>RUN-01</td><td>100.0</td><td>0.0</td><td>0.0</td><td>18.0</td><td>0.45</td><td>410</td><td>22.0</td><td>98.0</td><td>12.0</td><td>0.88</td></tr>
+                            <tr><td>RUN-02</td><td>80.0</td><td>10.0</td><td>10.0</td><td>12.0</td><td>0.62</td><td>525</td><td>34.5</td><td>68.0</td><td>72.0</td><td>1.42</td></tr>
+                            <tr><td>RUN-03</td><td>60.0</td><td>30.0</td><td>10.0</td><td>10.5</td><td>0.72</td><td>590</td><td>42.0</td><td>52.0</td><td>105.0</td><td>1.85</td></tr>
+                            <tr><td>RUN-04</td><td>50.0</td><td>40.0</td><td>10.0</td><td>10.0</td><td>0.78</td><td>615</td><td>46.0</td><td>46.0</td><td>128.0</td><td>2.15</td></tr>
+                            <tr style="background: rgba(16, 185, 129, 0.15); font-weight:bold;"><td>RUN-05 (Optimum)</td><td>45.0</td><td>45.0</td><td>10.0</td><td>10.0</td><td>0.80</td><td>605</td><td>48.5</td><td>42.0</td><td>134.0</td><td>2.28</td></tr>
+                            <tr><td>RUN-06</td><td>30.0</td><td>60.0</td><td>10.0</td><td>10.5</td><td>0.82</td><td>640</td><td>51.0</td><td>39.0</td><td>122.0</td><td>2.05</td></tr>
+                            <tr><td>RUN-07</td><td>25.0</td><td>65.0</td><td>10.0</td><td>10.0</td><td>0.85</td><td>658</td><td>53.0</td><td>38.0</td><td>110.0</td><td>1.92</td></tr>
+                            <tr><td>RUN-08</td><td>10.0</td><td>80.0</td><td>10.0</td><td>11.0</td><td>0.80</td><td>620</td><td>44.0</td><td>48.0</td><td>88.0</td><td>1.61</td></tr>
+                            <tr><td>RUN-09</td><td>45.0</td><td>45.0</td><td>10.0</td><td>22.0</td><td>0.58</td><td>480</td><td>33.0</td><td>78.0</td><td>58.0</td><td>1.25</td></tr>
+                            <tr><td>RUN-10</td><td>25.0</td><td>65.0</td><td>10.0</td><td>22.0</td><td>0.60</td><td>460</td><td>28.0</td><td>89.0</td><td>41.0</td><td>0.98</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table 3 & 4 Grid -->
+            <div class="bento-grid">
+                <div class="card col-6">
+                    <h3>Table 3: Simulated Performance (Dry vs Damp)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Strategy</th>
+                                    <th>Dry Yield</th>
+                                    <th>Damp Yield</th>
+                                    <th>Drop (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Single-Stage (25/65/10)</td><td>1.92</td><td>0.98</td><td><span style="color:var(--accent-rose);">-48.96%</span></td></tr>
+                                <tr><td>Circular Optimum (45/45/10)</td><td>2.28</td><td>1.25</td><td>-45.18%</td></tr>
+                                <tr style="color:var(--accent-emerald);"><td>Robust AI Recipe (50/40/10)</td><td>2.15</td><td>1.82</td><td><strong>-15.35%</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card col-6">
+                    <h3>Table 4: Solid Ash Mineral Profile</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Oxide Component</th>
+                                    <th>Tea Ash</th>
+                                    <th>Husk Ash</th>
+                                    <th>Blended (45/45)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Silica ($SiO_2$)</td><td>12.4%</td><td>88.6%</td><td>52.5%</td></tr>
+                                <tr><td>Potash ($K_2O$)</td><td>24.2%</td><td>2.1%</td><td>12.8%</td></tr>
+                                <tr><td>Lime ($CaO$)</td><td>14.8%</td><td>1.2%</td><td>7.8%</td></tr>
+                                <tr><td>Alkalinity Index</td><td>pH 10.2</td><td>pH 7.4</td><td><strong>pH 9.1</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table 5: Economics -->
+            <div class="card col-12" style="margin-top:24px;">
+                <h3>Table 5: Production Cost Structure per Tonne (Assam, India)</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cost Component</th>
+                                <th>Cost (INR ₹)</th>
+                                <th>Cost (USD $)</th>
+                                <th>Operational Context</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Spent Tea Waste Sourcing</td><td>₹ 450 / tonne</td><td>$5.42</td><td>Local tea processing transport focus</td></tr>
+                            <tr><td>Rice Husk Waste Sourcing</td><td>₹ 350 / tonne</td><td>$4.22</td><td>Grain mill collection</td></tr>
+                            <tr><td>Cassava Starch Binder</td><td>₹ 600 / tonne</td><td>$7.23</td><td>Local organic binder</td></tr>
+                            <tr><td>Compaction Press Power</td><td>₹ 480 / tonne</td><td>$5.78</td><td>Hydraulic pressing (12 MPa)</td></tr>
+                            <tr><td>Labor & Support</td><td>₹ 750 / tonne</td><td>$9.04</td><td>Community SHG support</td></tr>
+                            <tr style="background:rgba(16,185,129,0.1); font-weight:bold;">
+                                <td>TOTAL PRODUCTION COST</td>
+                                <td>₹ 2,630 / tonne</td>
+                                <td>$31.69 / tonne</td>
+                                <td>₹ 2.63 / kg ($0.032 / kg)</td>
+                            </tr>
+                            <tr style="font-weight:bold; color:var(--accent-cyan);">
+                                <td>Target Retail Price</td>
+                                <td>₹ 5,500 / tonne</td>
+                                <td>$66.27 / tonne</td>
+                                <td>52.2% Gross Margin (₹ 2,870/tonne profit)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Interactive Live Simulator -->
+        <section class="section-block" id="simulator">
+            <h2 class="section-title">7. Interactive Live Briquette Simulator</h2>
+            <p class="section-desc">Test custom blend ratios, moisture levels, and pre-drying states to estimate HHV, Net LHV, and CERI performance dynamically!</p>
+
+            <div class="card col-12">
+                <div class="calculator-grid">
+                    <div>
+                        <div class="input-control">
+                            <label>Spent Tea Waste (%): <span id="val-stw">45</span>%</label>
+                            <input type="range" id="input-stw" min="0" max="90" value="45" oninput="updateSimulation()">
+                        </div>
+                        <div class="input-control">
+                            <label>Rice Husk (%): <span id="val-rh">45</span>%</label>
+                            <input type="range" id="input-rh" min="0" max="90" value="45" oninput="updateSimulation()">
+                        </div>
+                        <div class="input-control">
+                            <label>Cassava Starch Binder (%): <span id="val-binder">10</span>%</label>
+                            <input type="range" id="input-binder" min="5" max="20" value="10" oninput="updateSimulation()">
+                        </div>
+                        <div class="input-control">
+                            <label>Feedstock Moisture (%): <span id="val-moisture">10</span>%</label>
+                            <input type="range" id="input-moisture" min="5" max="30" value="10" oninput="updateSimulation()">
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="metric-display">
+                            <div class="metric-label">Calculated Dry HHV</div>
+                            <div class="metric-value" id="calc-hhv">16.97 MJ/kg</div>
+                        </div>
+                        <div class="metric-display">
+                            <div class="metric-label">Net LHV (Moisture Adjusted)</div>
+                            <div class="metric-value" id="calc-lhv" style="color:var(--accent-cyan);">15.03 MJ/kg</div>
+                        </div>
+                        <div class="metric-display">
+                            <div class="metric-label">System CERI Return Yield</div>
+                            <div class="metric-value" id="calc-ceri" style="color:var(--accent-amber);">2.28</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Python Analytical Visualization Script -->
+        <section class="section-block">
+            <h2 class="section-title">8. Python Data Visualization Script</h2>
+            <p class="section-desc">Included in report to reproduce all Matplotlib publication figures:</p>
+
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyPythonCode()">Copy Python Code</button>
+<pre id="python-code-content">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Dynamic Combustion Profile Simulation
+time_sec = np.linspace(0, 60, 360)
+temp_profile = 25 + 580 * (1 - np.exp(-time_sec/6.5)) * np.exp(-time_sec/52.0)
+pm_profile = 15 + 83 * np.exp(-time_sec/2.5) + 22 * np.exp(-(time_sec-12)**2 / 18.0)
+
+fig, ax1 = plt.subplots(figsize=(7, 4.5), dpi=300)
+ax2 = ax1.twinx()
+
+p1, = ax1.plot(time_sec, temp_profile, 'r-', label='Flame Temp T(t) (°C)')
+p2, = ax2.plot(time_sec, pm_profile, 'k--', label='PM2.5 Soot Index')
+
+ax1.set_xlabel('Time (minutes)')
+ax1.set_ylabel('Flame Core Temp (°C)', color='r')
+ax2.set_ylabel('PM2.5 Soot Index', color='k')
+ax1.set_title('Dynamic Combustion Trajectory (Run-05)')
+ax1.grid(True)
+plt.show()
+</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>VARCHASVIN — Circular Agro-Energy Lifecycle Project</p>
+            <p style="font-size:0.8rem; margin-top:6px; color:#6b7280;">Science and Innovation for Sustainability • Class 10 / Senior Category</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Chart.js Rendering Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Combustion Stages Chart
+            new Chart(document.getElementById('combustionStagesChart'), {
+                type: 'line',
+                data: {
+                    labels: ['0m (Ignition)', '5m (Drying)', '15m (Pyrolysis)', '30m (Flame)', '48m (Char)', '60m (Ash)'],
+                    datasets: [{
+                        label: 'Bed Temp (°C)',
+                        data: [25, 120, 310, 605, 520, 150],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#fff' } } },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' } },
+                        y: { ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // 2. Dynamic Trajectory Chart
+            new Chart(document.getElementById('dynamicTrajectoryChart'), {
+                type: 'line',
+                data: {
+                    labels: [0, 10, 20, 30, 40, 50, 60],
+                    datasets: [
+                        {
+                            label: 'Flame Temp (°C)',
+                            data: [25, 480, 605, 580, 420, 210, 80],
+                            borderColor: '#ef4444',
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'PM2.5 Soot Index',
+                            data: [98, 42, 35, 38, 45, 60, 15],
+                            borderColor: '#06b6d4',
+                            borderDash: [5, 5],
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' } },
+                        y: { type: 'linear', position: 'left', ticks: { color: '#ef4444' } },
+                        y1: { type: 'linear', position: 'right', ticks: { color: '#06b6d4' }, grid: { drawOnChartArea: false } }
+                    }
+                }
+            });
+
+            // 3. Pareto Frontier Chart
+            new Chart(document.getElementById('paretoChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Evaluated Blends',
+                            data: [
+                                {x: 96.5, y: 0.88}, {x: 70.0, y: 1.42}, {x: 55.0, y: 1.85},
+                                {x: 48.5, y: 2.15}, {x: 45.0, y: 2.28}, {x: 41.5, y: 2.05}, {x: 40.0, y: 1.92}
+                            ],
+                            backgroundColor: '#06b6d4'
+                        },
+                        {
+                            label: 'Circular System Optimum',
+                            data: [{x: 45.0, y: 2.28}],
+                            backgroundColor: '#10b981',
+                            pointRadius: 10
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { title: { display: true, text: 'Emissions Index', color: '#9ca3af' }, ticks: { color: '#9ca3af' } },
+                        y: { title: { display: true, text: 'CERI Yield', color: '#9ca3af' }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // 4. Feature Importance Chart
+            new Chart(document.getElementById('featureImportanceChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Rice Husk %', 'Moisture %', 'Density', 'Tea Waste %', 'Binder %'],
+                    datasets: [{
+                        label: 'GPR Sensitivity Weight',
+                        data: [38.4, 26.1, 18.2, 11.8, 5.5],
+                        backgroundColor: ['#3b82f6', '#60a5fa', '#f97316', '#fb923c', '#10b981']
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' } },
+                        y: { ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // 5. Weather Degradation Chart
+            new Chart(document.getElementById('weatherDegradationChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['High-Heat Opt (25/65/10)', 'Robust AI Opt (50/40/10)'],
+                    datasets: [
+                        {
+                            label: 'Dry Weather (10% Moisture)',
+                            data: [1.92, 2.15],
+                            backgroundColor: '#10b981'
+                        },
+                        {
+                            label: 'Damp Weather (22% Moisture)',
+                            data: [0.98, 1.82],
+                            backgroundColor: '#ef4444'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' } },
+                        y: { ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // Init calculation
+            updateSimulation();
+        });
+
+        // Interactive Live Simulator Logic
+        function updateSimulation() {
+            let stw = parseFloat(document.getElementById('input-stw').value);
+            let rh = parseFloat(document.getElementById('input-rh').value);
+            let binder = parseFloat(document.getElementById('input-binder').value);
+            let moisture = parseFloat(document.getElementById('input-moisture').value);
+
+            // Normalize sum to 100%
+            let total = stw + rh + binder;
+            stw = (stw / total) * 100;
+            rh = (rh / total) * 100;
+            binder = (binder / total) * 100;
+
+            document.getElementById('val-stw').innerText = stw.toFixed(1);
+            document.getElementById('val-rh').innerText = rh.toFixed(1);
+            document.getElementById('val-binder').innerText = binder.toFixed(1);
+            document.getElementById('val-moisture').innerText = moisture.toFixed(1);
+
+            // Compute Dry HHV (MJ/kg) based on weighted blend
+            let hhv_stw = 18.82;
+            let hhv_rh = 15.45;
+            let hhv_binder = 16.80;
+
+            let dry_hhv = ((stw * hhv_stw) + (rh * hhv_rh) + (binder * hhv_binder)) / 100.0;
+            
+            // Net LHV (MJ/kg)
+            let m_frac = moisture / 100.0;
+            let net_lhv = dry_hhv * (1.0 - m_frac) - (2.442 * m_frac);
+
+            // Estimated CERI
+            let base_ceri = (dry_hhv / 16.5) * 1.8;
+            let moisture_penalty = (moisture - 10.0) * 0.05;
+            let ceri = base_ceri - moisture_penalty;
+            if (ceri < 0.5) ceri = 0.5;
+
+            document.getElementById('calc-hhv').innerText = dry_hhv.toFixed(2) + " MJ/kg";
+            document.getElementById('calc-lhv').innerText = net_lhv.toFixed(2) + " MJ/kg";
+            document.getElementById('calc-ceri').innerText = ceri.toFixed(2);
+        }
+
+        // Copy Helper Functions
+        function copyPythonCode() {
+            let code = document.getElementById('python-code-content').innerText;
+            navigator.clipboard.writeText(code);
+            alert('Python code copied to clipboard!');
+        }
+
+        function copyColabPrompt() {
+            let promptText = document.getElementById('colab-prompt-text').innerText;
+            navigator.clipboard.writeText(promptText);
+            alert('Master Google Colab Prompt copied to clipboard!');
+        }
+    </script>
 </body>
 </html>
