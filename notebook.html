@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project VARCHASVIN CYCLE-X — Code Architecture & Physics Documentation</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: #1e293b;
+            --panel-border: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --code-bg: #090d16;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--panel-border);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--accent-green);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .author-tag {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--accent-cyan);
+        }
+
+        .section-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--accent-amber);
+            margin: 1.25rem 0 0.75rem 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        code {
+            font-family: "Fira Code", Consolas, Monaco, "Andale Mono", monospace;
+            background: var(--code-bg);
+            color: var(--accent-green);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            color: #e2e8f0;
+            padding: 0;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .kw { color: #f472b6; }
+        .fn { color: #60a5fa; }
+        .str { color: #34d399; }
+        .num { color: #fbbf24; }
+        .cmt { color: #64748b; font-style: italic; }
+
+        .formula-box {
+            background: rgba(6, 182, 212, 0.08);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .formula-title {
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .formula {
+            font-family: "Fira Code", monospace;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--panel-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge">Colab Notebook Documentation</span>
+        <h1>Project VARCHASVIN CYCLE-X</h1>
+        <p class="subtitle">Complete Computational Simulation & AI Engine for Circular Biomass Briquette Systems</p>
+        <div class="author-tag">
+            <strong>Author Role:</strong> Senior Research Fellow — Biomass Energy Systems · Computational Thermal Physicist · Senior Data Scientist
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <div class="section-card">
+        <h2>0. Executive Architecture Overview</h2>
+        <p>This notebook provides an end-to-end computational and AI workflow modeling circular biomass briquette systems. It synthesizes experimental composition blends, calculates thermochemical balances, solves transient lumped thermal mass differential equations, predicts peak temperature metrics using Gaussian Process Regression (GPR), and provides multi-objective optimization.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">Feedstocks Modeled</div>
+                <ul>
+                    <li>Spent Tea Waste (STW)</li>
+                    <li>Rice Husk (RH)</li>
+                    <li>Wheat Straw (WS)</li>
+                    <li>Cassava Starch Binder</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title">Key Methodologies</div>
+                <ul>
+                    <li>Dirichlet Mixture Sampling</li>
+                    <li>Dulong Thermochemical HHV/LHV</li>
+                    <li>Gaussian Process Regression</li>
+                    <li>ODE Lumped Mass Solver</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-card">
+        <h2>1. Section 1 — Environment Setup & Automated Dependency Management</h2>
+        <p>This initial code block ensures all necessary numerical, scientific, plotting, and reporting packages are present, suppressing non-critical optimization warnings and setting a unified dark-mode visual palette.</p>
+
+        <h3>1.1 Package Verification & Installation (`ensure_packages`)</h3>
+        <p>The system defines a mandatory package list: <code>numpy</code>, <code>pandas</code>, <code>scipy</code>, <code>sklearn</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>sympy</code>, <code>plotly</code>, and <code>reportlab</code>. It uses <code>importlib.import_module</code> inside a try-except block to inspect availability and dynamically triggers <code>pip install -q</code> for missing dependencies via standard process calls.</p>
+
+<pre><code><span class="kw">def</span> <span class="fn">ensure_packages</span>(pkgs):
+    missing = []
+    <span class="kw">for</span> p <span class="kw">in</span> pkgs:
+        <span class="kw">try</span>:
+            importlib.import_module(p)
+        <span class="kw">except</span> ImportError:
+            missing.append(p)
+    <span class="kw">if</span> missing:
+        subprocess.check_call([sys.executable, <span class="str">"-m"</span>, <span class="str">"pip"</span>, <span class="str">"install"</span>, <span class="str">"-q"</span>, *missing])
+</code></pre>
+
+        <h3>1.2 Convergence Warning Suppression</h3>
+        <p>GPR hyperparameter optimization (Section 4) can trigger benign convergence notifications when handling near-linear feature distributions. The notebook explicitly suppresses <code>ConvergenceWarning</code> using <code>warnings.filterwarnings("ignore", category=ConvergenceWarning)</code> while maintaining code documentation transparency.</p>
+
+        <h3>1.3 Unified Dark Aesthetic Palette</h3>
+        <p>Configures global Matplotlib parameter updates (`plt.style.use("dark_background")`) and sets standard palette hex codes: <code>#10b981</code> (emerald), <code>#06b6d4</code> (cyan), <code>#f59e0b</code> (amber), and <code>#ef4444</code> (red).</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-card">
+        <h2>2. Section 2 — Synthetic Dataset Generation & Compositional Mixing</h2>
+        <p>Section 2 generates 1,000 synthetic biomass formulation samples, sampling realistic compositional combinations across four pure feedstocks with physical mass-balance constraints.</p>
+
+        <h3>2.1 Feedstock Reference Table (`PROXIMATE_REF`)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feedstock</th>
+                    <th>Moisture ($M$)</th>
+                    <th>Volatile ($V$)</th>
+                    <th>Fixed Carbon ($FC$)</th>
+                    <th>Ash ($A$)</th>
+                    <th>Carbon ($w_C$)</th>
+                    <th>Hydrogen ($w_H$)</th>
+                    <th>Oxygen ($w_O$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Spent Tea Waste (STW)</td>
+                    <td>0.09</td>
+                    <td>0.62</td>
+                    <td>0.20</td>
+                    <td>0.09</td>
+                    <td>46.5%</td>
+                    <td>6.0%</td>
+                    <td>41.0%</td>
+                </tr>
+                <tr>
+                    <td>Rice Husk (RH)</td>
+                    <td>0.10</td>
+                    <td>0.60</td>
+                    <td>0.14</td>
+                    <td>0.16</td>
+                    <td>39.0%</td>
+                    <td>5.2%</td>
+                    <td>37.0%</td>
+                </tr>
+                <tr>
+                    <td>Wheat Straw (WS)</td>
+                    <td>0.11</td>
+                    <td>0.66</td>
+                    <td>0.16</td>
+                    <td>0.07</td>
+                    <td>44.0%</td>
+                    <td>5.8%</td>
+                    <td>42.5%</td>
+                </tr>
+                <tr>
+                    <td>Cassava Binder</td>
+                    <td>0.12</td>
+                    <td>0.72</td>
+                    <td>0.10</td>
+                    <td>0.02</td>
+                    <td>41.0%</td>
+                    <td>6.2%</td>
+                    <td>48.0%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 Composition Blend via Dirichlet Sampling</h3>
+        <p>To simulate practical briquette production where STW and RH dominate while binder content is kept low, compositional mass fractions are sampled from a Dirichlet distribution with concentration parameters $\alpha = [3.0, 3.0, 2.0, 1.2]$:</p>
+
+<pre><code>alpha = [<span class="num">3.0</span>, <span class="num">3.0</span>, <span class="num">2.0</span>, <span class="num">1.2</span>]
+comp = np.random.dirichlet(alpha, size=<span class="num">1000</span>)
+</code></pre>
+
+        <h3>2.3 Mass Balance & Noise Perturbation</h3>
+        <p>Gaussian noise is applied to reflect experimental measurement error ($3\%$ scale for Moisture/Ash, $1.5\%$ for Volatiles/Fixed Carbon). Proximate mass balance is strictly enforced so that total mass fraction equals $1.0$ ($M + V + FC + A = 1$):</p>
+
+<pre><code>df[<span class="str">"M"</span>] = np.clip(mix[<span class="str">"M"</span>], <span class="num">0.05</span>, <span class="num">0.35</span>)
+prox_tail_sum = df[<span class="str">"V"</span>] + df[<span class="str">"FC"</span>] + df[<span class="str">"A"</span>]
+rescale = (<span class="num">1</span> - df[<span class="str">"M"</span>]) / prox_tail_sum
+df[<span class="str">"V"</span>] *= rescale
+df[<span class="str">"FC"</span>] *= rescale
+df[<span class="str">"A"</span>] *= rescale
+</code></pre>
+
+        <p>Oxygen content on a dry ultimate weight-percent basis is calculated by subtracting Carbon, Hydrogen, Nitrogen, Sulfur, and Ash content from 100%:</p>
+        <div class="formula-box">
+            <div class="formula-title">Oxygen Balance Equation</div>
+            <div class="formula">w_O = 100 - (w_C + w_H + w_N + w_S + 100 · A)</div>
+        </div>
+    </div>
+
+    <!-- Thermochemical Equations -->
+    <div class="section-card">
+        <h2>3. Thermochemical Energy Calculations</h2>
+        <p>The notebook computes fuel energy density and moisture evaporation penalties using standard empirical thermo-conversions.</p>
+
+        <h3>3.1 Dulong-Modified Dry Higher Heating Value ($HHV_{\text{dry}}$)</h3>
+        <p>Calculates gross thermal energy potential per dry mass unit based on element mass fractions:</p>
+        <div class="formula-box">
+            <div class="formula-title">Modified Dulong HHV Formula</div>
+            <div class="formula">HHV<sub>dry</sub> = 0.3383 · w<sub>C</sub> + 1.422 · (w<sub>H</sub> - w<sub>O</sub> / 8) - 0.0153 · w<sub>A</sub> &nbsp;&nbsp;[MJ/kg]</div>
+        </div>
+
+        <h3>3.2 Net Lower Heating Value ($LHV_{\text{net}}$)</h3>
+        <p>Accounts for latent heat of water vapor formed during combustion due to fuel moisture fraction $M$:</p>
+        <div class="formula-box">
+            <div class="formula-title">Net LHV (As-Received Basis)</div>
+            <div class="formula">LHV<sub>net</sub> = HHV<sub>dry</sub> · (1 - M) - 2.442 · M &nbsp;&nbsp;[MJ/kg]</div>
+        </div>
+
+        <h3>3.3 Water Evaporation Energy Loss ($Q_{\text{evap}}$)</h3>
+        <p>Computes heat absorbed to vaporize moisture present in $m_{\text{fuel}}$ mass during pre-combustion drying:</p>
+        <div class="formula-box">
+            <div class="formula-title">Evaporation Loss Formula</div>
+            <div class="formula">Q<sub>evap</sub> = 2773.4 · M · m<sub>fuel</sub> &nbsp;&nbsp;[kJ]</div>
+        </div>
+
+        <h3>3.4 Python Code Implementation</h3>
+<pre><code><span class="cmt"># Dulong HHV (MJ/kg)</span>
+df[<span class="str">"HHV_dry_MJkg"</span>] = (
+    <span class="num">0.3383</span> * df[<span class="str">"w_C"</span>] +
+    <span class="num">1.422</span> * (df[<span class="str">"w_H"</span>] - df[<span class="str">"w_O"</span>] / <span class="num">8.0</span>) -
+    <span class="num">0.0153</span> * (df[<span class="str">"A"</span>] * <span class="num">100.0</span>)
+)
+
+<span class="cmt"># LHV Net as-received (MJ/kg)</span>
+df[<span class="str">"LHV_net_MJkg"</span>] = df[<span class="str">"HHV_dry_MJkg"</span>] * (<span class="num">1.0</span> - df[<span class="str">"M"</span>]) - <span class="num">2.442</span> * df[<span class="str">"M"</span>]
+
+<span class="cmt"># Evaporation heat loss per kg fuel (kJ/kg)</span>
+df[<span class="str">"Q_evap_kJ_per_kg"</span>] = <span class="num">2773.4</span> * df[<span class="str">"M"</span>]
+</code></pre>
+    </div>
+
+    <!-- Key Outputs -->
+    <div class="section-card">
+        <h2>4. Data Schema & Statistical Output Range</h2>
+        <p>Execution of Sections 1 and 2 produces the primary dataset table summarized below:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Mean</th>
+                    <th>Std Dev</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>HHV_dry_MJkg</code></td>
+                    <td>15.35</td>
+                    <td>0.68</td>
+                    <td>13.26</td>
+                    <td>17.50</td>
+                    <td>MJ/kg</td>
+                </tr>
+                <tr>
+                    <td><code>LHV_net_MJkg</code></td>
+                    <td>13.54</td>
+                    <td>0.65</td>
+                    <td>11.60</td>
+                    <td>15.59</td>
+                    <td>MJ/kg</td>
+                </tr>
+                <tr>
+                    <td><code>Q_evap_kJ_per_kg</code></td>
+                    <td>281.60</td>
+                    <td>12.30</td>
+                    <td>246.75</td>
+                    <td>333.85</td>
+                    <td>kJ/kg</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+  </html>
+                      
